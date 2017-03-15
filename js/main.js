@@ -11,8 +11,8 @@ var input_date = new Date(getUrlParameter('date'));
 input_date.setHours( 0,0,0,0 );
 var today = new Date();
 today.setHours( 0,0,0,0 );
-var today_plusten = new Date();
-today_plusten.setDate(today.getDate() + 10);
+var today_plus = new Date();
+today_plus.setDate(today.getDate() + 9); // The API only gives up to 9 values in the future.
 
 function AppendWeather(day) {
     try {
@@ -131,7 +131,6 @@ function GetWeatherFromHistory(zip_code) {
 }
 
 function GetFutureWeather(zip_code) {
-    console.log('GetFutureWeather');
     try {
         $.ajax({
             url : "http://api.wunderground.com/api/6ea7cf3bc006012f/forecast10day/q/"+zip_code+".json",
@@ -181,7 +180,7 @@ $(document).ready(function($) {
             GetWeatherFromHistory(zip_code);
         } else if(input_date - today === 0) {
             GetForecastNow(zip_code);
-        } else if (input_date > today && input_date <= today_plusten) {
+        } else if (input_date > today && input_date <= today_plus) {
             GetFutureWeather(zip_code);
         } else {
             console.log('Date is not within the 10 days of future forecast range.');
