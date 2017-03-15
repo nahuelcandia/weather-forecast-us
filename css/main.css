@@ -1,6 +1,14 @@
 body {
     font-family: 'Helvetica', 'Arial', sans-serif;
 }
+.icon-container {
+    text-align: center;
+}
+.icon-container img {
+    max-width: 50%;
+    min-width: 50px;
+    margin-top: 0.5em;
+}
 .region-title {
     color: #7A7A7A;
     text-transform: uppercase;
@@ -8,21 +16,16 @@ body {
     text-align: center;
     margin-top: 2em;
 }
+.weather {
+    font-size: 1.3em;
+}
 .w-day {
     background-color: #739EB9;
-    color: #FFF;
-    padding: 0em 0em 0em 0.5em;
+    color: #ffffff;
+    padding-left: 0.5em;
     line-height: 1.5em;
 }
-.w-icon {
-    max-width: 70%;
-    margin-left: 15%;
-    margin-top: 1em;
-}
-.w-type {
 
+.w-type {
     margin-top: 0.5em;
-}
-.weather {
-    font-size: 1.5em;
 }
