@@ -102,7 +102,19 @@ function GetWeatherFromHistory(zip_code) {
                         day['high']['fahrenheit'] = data['history']['dailysummary'][0]['maxtempi'];
                         day['low']['fahrenheit'] = data['history']['dailysummary'][0]['mintempi'];
                         day['conditions'] = data['history']['observations'][0]['conds'];
-                        day['date']['weekday'] = data['history']['observations'][0]['date']['pretty'];
+
+                        day['date']['weekday'] = data['history']['observations'][0]['date']['mon'] + '/' + data['history']['observations'][0]['date']['mday'] +'/'+ data['history']['observations'][0]['date']['year'];
+                        var d = new Date(day['date']['weekday']);
+                        var weekday = new Array(7);
+                        weekday[0] =  "Sunday";
+                        weekday[1] = "Monday";
+                        weekday[2] = "Tuesday";
+                        weekday[3] = "Wednesday";
+                        weekday[4] = "Thursday";
+                        weekday[5] = "Friday";
+                        weekday[6] = "Saturday";
+                        day['date']['weekday'] = weekday[d.getDay()];
+
                         AppendWeather(day);
                     }
                 });
