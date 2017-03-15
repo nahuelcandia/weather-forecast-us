@@ -54,7 +54,6 @@ function GetCityByZIP(zip_code) {
 }
 function GetForecastNow(zip_code, days_toshow) {
     console.log('GetForecastNow');
-    days_toshow +=1;
     try {
         $.ajax({
             url : "http://api.wunderground.com/api/6ea7cf3bc006012f/forecast/q/"+zip_code+".json",
@@ -64,11 +63,9 @@ function GetForecastNow(zip_code, days_toshow) {
                     if (days_toshow === undefined){
                         (i) ? AppendWeather(day) : null
                     } else {
+                        days_toshow +=1;
                         if(day['date']['day'] - today.getDate() <= 1){
-                            console.log('i: '+i);
-                            console.log('days_toshow: '+days_toshow);
                             AppendWeather(day);
-
                         }
                     }
                 });
